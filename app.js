@@ -79,7 +79,7 @@ function buyItem(item, cost) {
         goldLabel.innerHTML = gold;
     }
 
-    if (gold >= cost && item == drill) {
+    if (gold >= cost && item == "drill") {
         gold -= cost;
         inventory.push(item);
         diggingPower += 30;
@@ -88,7 +88,7 @@ function buyItem(item, cost) {
         goldLabel.innerHTML = gold;
     }
 
-    if (gold >= cost && item == dynamite) {
+    if (gold >= cost && item == "dynamite") {
         gold -= cost;
         inventory.push(item);
         diggingPower += 100;
@@ -97,7 +97,7 @@ function buyItem(item, cost) {
         goldLabel.innerHTML = gold;
     }
 
-    if (gold >= cost && item == facility) {
+    if (gold >= cost && item == "facility") {
         gold -= cost;
         inventory.push(item);
         diggingPower *= 2;
