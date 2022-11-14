@@ -44,10 +44,10 @@ buyDrillButton.addEventListener("click", () => {
 });
 buyDynamiteButton.addEventListener("click", () => {
     buyItem("dynamite", dynamiteCost);
-})
+});
 buyFacilityButton.addEventListener("click", () => {
     buyItem("facility", facilityCost);
-})
+});
 
 
 function buyItem(item, cost) {
