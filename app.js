@@ -10,6 +10,7 @@ let drillLabel = document.querySelector(".drill-label");
 let dynamiteLabel = document.querySelector(".dynamite-label");
 let facilityLabel = document.querySelector(".facility-label");
 let officeLabel = document.querySelector(".office-label");
+let countryLabel = document.querySelector(".country-label");
 
 let diggingPower = 1;
 
@@ -37,6 +38,9 @@ let facilityCost = 50000;
 let buyOfficeButton = document.querySelector(".buy-office-button");
 let officeCost = 100000;
 
+let buyCountryButton = document.querySelector(".buy-country-button");
+let countryCost = 1000000;
+
 
 goldButton.addEventListener("click", addGold);
 
@@ -60,7 +64,10 @@ buyFacilityButton.addEventListener("click", () => {
 });
 buyOfficeButton.addEventListener("click", () => {
     buyItem("office", officeCost);
-})
+});
+buyCountryButton.addEventListener("click", () => {
+    buyItem("country", countryCost);
+});
 
 function buyItem(item, cost) {
 
@@ -130,10 +137,20 @@ function buyItem(item, cost) {
         gold -= cost;
         inventory.push(item);
         diggingPower *= 3;
-        officeCost *= 4;
+        officeCost *= 10;
         updateInventory();
         goldLabel.innerHTML = gold;
         officeLabel.innerHTML = officeCost;
+    }
+
+    if(gold >= cost && item == "country") {
+        gold -= cost;
+        inventory.push(item);
+        diggingPower *= 4;
+        countryCost *= 10;
+        updateInventory();
+        goldLabel.innerHTML = gold;
+        countryLabel.innerHTML = countryCost;
     }
 
     goldEarn.innerHTML = diggingPower;
