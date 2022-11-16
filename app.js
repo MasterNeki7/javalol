@@ -2,9 +2,18 @@ let gold = 0;
 let goldLabel = document.querySelector(".gold-label");
 let goldButton = document.querySelector(".gold-button");
 
+let goldEarn = document.querySelector(".gold-earn");
+let candleLabel = document.querySelector(".candle-label");
+let pickaxeLabel = document.querySelector(".pickaxe-label");
+let 中国工人Label = document.querySelector(".中国工人-label");
+let drillLabel = document.querySelector(".drill-label");
+let dynamiteLabel = document.querySelector(".dynamite-label");
+let facilityLabel = document.querySelector(".facility-label");
+let officeLabel = document.querySelector(".office-label");
+
 let diggingPower = 1;
 
-let inventory = ["AK 47"];
+let inventory = ["AK 47", "kläder"];
 let inventoryList = document.querySelector(".inventory-list")
 
 let buyCandleButton = document.querySelector(".buy-candle-button");
@@ -25,7 +34,8 @@ let dynamiteCost = 1000;
 let buyFacilityButton = document.querySelector(".buy-facility-button");
 let facilityCost = 50000;
 
-
+let buyOfficeButton = document.querySelector(".buy-office-button");
+let officeCost = 100000;
 
 
 goldButton.addEventListener("click", addGold);
@@ -48,44 +58,52 @@ buyDynamiteButton.addEventListener("click", () => {
 buyFacilityButton.addEventListener("click", () => {
     buyItem("facility", facilityCost);
 });
-
+buyOfficeButton.addEventListener("click", () => {
+    buyItem("office", officeCost);
+})
 
 function buyItem(item, cost) {
+
+
 
     if (gold >= cost && item == "candle") {
         gold -= cost;
         inventory.push(item);
-        diggingPower += 3;
+        diggingPower += 5;
         candleCost *= 2;
         updateInventory();
         goldLabel.innerHTML = gold;
+        candleLabel.innerHTML = candleCost;
     }
 
-    if(gold >= cost && item == "pickaxe"){
+    if (gold >= cost && item == "pickaxe") {
         gold -= cost;
         inventory.push(item);
-        diggingPower += 7;
+        diggingPower += 15;
         pickaxeCost *= 2;
         updateInventory();
         goldLabel.innerHTML = gold;
+        pickaxeLabel.innerHTML = pickaxeCost;
     }
 
     if (gold >= cost && item == "中国工人") {
         gold -= cost;
         inventory.push(item);
-        diggingPower += 15;
+        diggingPower += 30;
         ChineseWorkerCost *= 2;
         updateInventory();
         goldLabel.innerHTML = gold;
+        中国工人Label.innerHTML = ChineseWorkerCost;
     }
 
     if (gold >= cost && item == "drill") {
         gold -= cost;
         inventory.push(item);
-        diggingPower += 30;
+        diggingPower += 50;
         drillCost *= 2;
         updateInventory();
         goldLabel.innerHTML = gold;
+        drillLabel.innerHTML = drillCost;
     }
 
     if (gold >= cost && item == "dynamite") {
@@ -95,6 +113,7 @@ function buyItem(item, cost) {
         dynamiteCost *= 2;
         updateInventory();
         goldLabel.innerHTML = gold;
+        dynamiteLabel.innerHTML = dynamiteCost;
     }
 
     if (gold >= cost && item == "facility") {
@@ -104,9 +123,20 @@ function buyItem(item, cost) {
         facilityCost *= 10;
         updateInventory();
         goldLabel.innerHTML = gold;
+        facilityLabel.innerHTML = facilityCost;
     }
 
+    if (gold >= cost && item == "office") {
+        gold -= cost;
+        inventory.push(item);
+        diggingPower *= 3;
+        officeCost *= 4;
+        updateInventory();
+        goldLabel.innerHTML = gold;
+        officeLabel.innerHTML = officeCost;
+    }
 
+    goldEarn.innerHTML = diggingPower;
 }
 
 
@@ -114,6 +144,7 @@ function buyItem(item, cost) {
 function addGold() {
     gold += diggingPower;
     goldLabel.innerHTML = gold;
+    
 }
 
 function updateInventory() {

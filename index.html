@@ -2,36 +2,39 @@
 <html lang="en">
 
 
-    <head>
+<head>
 
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Golddigger</title>
-        <script src="./app.js" defer></script>
-        
-    </head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golddigger</title>
+    <script src="./app.js" defer></script>
+
+</head>
 
 
-    <body>
-        
+<body>
+    <div>
         <h1>Gold Miner</h1>
 
         <div>
             Gold: <span class="gold-label">0</span>
         </div>
 
-        <button type="button" class="gold-button">Click to earn gold!</button>
-        <button type="button" class="buy-candle-button">Buy a candle </button>
-        <button type="button" class="buy-pickaxe-button">Buy a pickaxe</button>
-        <button type="button" class="buy-chinese-worker">Buy a 中国工人</button>
-        <button type="button" class="buy_drill_button">Buy a drill</button>
-        <button type="button" class="buy-dynamite-button">Buy a dynamite</button>
-        <button type="button" class="buy-facility-button">Buy a facility</button>
-        <button type="button" class="buy-golden-ipad-button"></button>
-        <ul class="inventory-list"> <!--populated by javascript--> </ul>
+        <button type="button" class="gold-button">Click to earn <span class="gold-earn">1</span> gold!</button>
+        <button type="button" class="buy-candle-button">Buy a Candle <span class="candle-label">10</span></button>
+        <button type="button" class="buy-pickaxe-button">Buy a Pickaxe <span class="pickaxe-label">50</span></button>
+        <button type="button" class="buy-chinese-worker">Buy a 中国工人 <span class="中国工人-label">150</span></button>
+        <button type="button" class="buy-drill-button">Buy a Drill <span class="drill-label">300</span></button>
+        <button type="button" class="buy-dynamite-button">Buy a Dynamite <span class="dynamite-label">1000</span></button>
+        <button type="button" class="buy-facility-button">Buy a Facility <span class="facility-label">50000</span></button>
+        <button type="button" class="buy-office-button">Buy a Office <span class="office-label">100000</span></button>
+        <ul class="inventory-list">
+            <!--populated by javascript-->
+        </ul>
+    </div>
 
-
-    </body>
+   
+</body>
 
 </html>
